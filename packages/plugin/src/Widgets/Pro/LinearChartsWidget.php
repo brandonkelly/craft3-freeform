@@ -53,7 +53,7 @@ class LinearChartsWidget extends AbstractWidget implements ExtraWidgetInterface
     /**
      * {@inheritDoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -85,14 +85,14 @@ class LinearChartsWidget extends AbstractWidget implements ExtraWidgetInterface
     /**
      * {@inheritDoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['formIds'], 'required'],
         ];
     }
 
-    public function getBodyHtml(): string
+    public function getBodyHtml(): ?string
     {
         if (!Freeform::getInstance()->isPro()) {
             return Freeform::t(
@@ -141,7 +141,7 @@ class LinearChartsWidget extends AbstractWidget implements ExtraWidgetInterface
         );
     }
 
-    public function getSettingsHtml(): string
+    public function getSettingsHtml(): ?string
     {
         $forms = $this->getFormService()->getAllForms();
         $formsOptions = [];

@@ -35,7 +35,7 @@ class FormFieldType extends Field
     /**
      * {@inheritDoc}
      */
-    public function getContentColumnType(): string
+    public function getContentColumnType(): array|string
     {
         return Schema::TYPE_INTEGER;
     }
@@ -45,7 +45,7 @@ class FormFieldType extends Field
      *
      * @param mixed $value
      */
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ElementInterface $element = null): string
     {
         $freeform = Freeform::getInstance();
 
@@ -87,7 +87,7 @@ class FormFieldType extends Field
     /**
      * {@inheritDoc}
      */
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue(mixed $value, ElementInterface $element = null): mixed
     {
         if ($value instanceof Form) {
             return $value->getId();
@@ -99,7 +99,7 @@ class FormFieldType extends Field
     /**
      * {@inheritDoc}
      */
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue(mixed $value, ElementInterface $element = null): mixed
     {
         if ($value instanceof Form) {
             return $value;
@@ -114,7 +114,7 @@ class FormFieldType extends Field
         return null;
     }
 
-    public function getContentGqlType()
+    public function getContentGqlType(): array|\GraphQL\Type\Definition\Type
     {
         $gqlType = [
             'name' => $this->handle,

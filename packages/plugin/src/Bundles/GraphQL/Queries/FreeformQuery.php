@@ -10,7 +10,7 @@ use Solspace\Freeform\Bundles\GraphQL\Resolvers\FreeformResolver;
 
 class FreeformQuery extends Query
 {
-    public static function getQueries($checkToken = true): array
+    public static function getQueries(bool $checkToken = true): array
     {
         if ($checkToken && !GqlPermissions::canQueryForms()) {
             return [];

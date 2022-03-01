@@ -220,7 +220,7 @@ class Submission extends Element
     /**
      * {@inheritdoc}
      */
-    public static function refHandle()
+    public static function refHandle(): ?string
     {
         return 'submission';
     }
@@ -312,7 +312,7 @@ class Submission extends Element
         return $this->userId ? \Craft::$app->users->getUserById($this->userId) : null;
     }
 
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->getStatusModel()->handle;
     }
@@ -451,7 +451,7 @@ class Submission extends Element
     /**
      * {@inheritdoc}
      */
-    public function getCpEditUrl()
+    public function getCpEditUrl(): ?string
     {
         return $this->getIsEditable() ? UrlHelper::cpUrl('freeform/submissions/'.$this->id) : false;
     }
@@ -483,7 +483,7 @@ class Submission extends Element
         return $html;
     }
 
-    public function afterSave(bool $isNew)
+    public function afterSave(bool $isNew): void
     {
         $insertData = [
             'userId' => $this->userId,

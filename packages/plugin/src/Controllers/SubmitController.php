@@ -28,7 +28,7 @@ use yii\web\Response;
 class SubmitController extends BaseController
 {
     /** @var bool */
-    protected $allowAnonymous = true;
+    protected array|bool|int $allowAnonymous = true;
 
     /**
      * @throws FreeformException

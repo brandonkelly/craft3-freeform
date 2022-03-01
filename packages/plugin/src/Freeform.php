@@ -219,7 +219,7 @@ class Freeform extends Plugin
     const EVENT_REGISTER_SUBNAV_ITEMS = 'registerSubnavItems';
 
     /** @var bool */
-    public $hasCpSettings = true;
+    public bool $hasCpSettings = true;
 
     /**
      * @return Freeform|Plugin
@@ -311,7 +311,7 @@ class Freeform extends Plugin
     /**
      * @return null|array
      */
-    public function getCpNavItem()
+    public function getCpNavItem(): ?array
     {
         $navItem = parent::getCpNavItem();
 
@@ -332,7 +332,7 @@ class Freeform extends Plugin
     /**
      * On install - insert default statuses.
      */
-    public function afterInstall()
+    public function afterInstall(): void
     {
         $fieldService = self::getInstance()->fields;
 
@@ -446,12 +446,12 @@ class Freeform extends Plugin
         $fieldService->save($field);
     }
 
-    protected function createSettingsModel(): Settings
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new Settings();
     }
 
-    protected function settingsHtml(): string
+    protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
             'freeform/settings',

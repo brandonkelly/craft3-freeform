@@ -93,6 +93,7 @@ class MailChimp extends AbstractMailingListIntegration
             return isset($json->account_id) && !empty($json->account_id);
         } catch (RequestException $e) {
             $this->logErrorAndThrow($e);
+            return false;
         }
     }
 

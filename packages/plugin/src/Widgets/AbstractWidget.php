@@ -17,7 +17,7 @@ use Solspace\Freeform\Services\Pro\WidgetsService;
 
 abstract class AbstractWidget extends Widget
 {
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title ?: static::displayName();
     }

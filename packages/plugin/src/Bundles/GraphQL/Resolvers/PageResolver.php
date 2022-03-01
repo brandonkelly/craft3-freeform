@@ -15,7 +15,7 @@ class PageResolver extends Resolver
      *
      * @return Page[]
      */
-    public static function resolve($source, array $arguments, $context, ResolveInfo $resolveInfo)
+    public static function resolve(mixed $source, array $arguments, mixed $context, ResolveInfo $resolveInfo): mixed
     {
         return $source->getLayout()->getPages();
     }

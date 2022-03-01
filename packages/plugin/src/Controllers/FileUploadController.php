@@ -17,7 +17,7 @@ use yii\web\Response;
 class FileUploadController extends BaseController
 {
     public $enableCsrfValidation = false;
-    protected $allowAnonymous = true;
+    protected array|bool|int $allowAnonymous = true;
 
     public function actionGet()
     {

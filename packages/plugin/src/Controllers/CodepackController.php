@@ -28,7 +28,7 @@ class CodepackController extends BaseController
 {
     const FLASH_VAR_KEY = 'codepack_prefix';
 
-    public function init()
+    public function init(): void
     {
         PermissionHelper::requirePermission(Freeform::PERMISSION_SETTINGS_ACCESS);
 

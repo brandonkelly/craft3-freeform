@@ -31,7 +31,7 @@ class SpamSubmission extends Submission
     /**
      * {@inheritdoc}
      */
-    public static function refHandle()
+    public static function refHandle(): ?string
     {
         return 'spam';
     }
@@ -55,7 +55,7 @@ class SpamSubmission extends Submission
     /**
      * {@inheritdoc}
      */
-    public function getCpEditUrl()
+    public function getCpEditUrl(): ?string
     {
         return $this->getIsEditable() ? UrlHelper::cpUrl('freeform/spam/'.$this->id) : false;
     }

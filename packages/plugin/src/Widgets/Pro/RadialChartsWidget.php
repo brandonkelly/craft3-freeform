@@ -49,7 +49,7 @@ class RadialChartsWidget extends AbstractWidget implements ExtraWidgetInterface
     /**
      * {@inheritDoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -74,7 +74,7 @@ class RadialChartsWidget extends AbstractWidget implements ExtraWidgetInterface
         }
     }
 
-    public function getBodyHtml(): string
+    public function getBodyHtml(): ?string
     {
         if (!Freeform::getInstance()->isPro()) {
             return Freeform::t(
@@ -94,7 +94,7 @@ class RadialChartsWidget extends AbstractWidget implements ExtraWidgetInterface
         );
     }
 
-    public function getSettingsHtml(): string
+    public function getSettingsHtml(): ?string
     {
         $forms = $this->getFormService()->getAllForms();
         $formsOptions = [];

@@ -10,7 +10,7 @@ use Solspace\Freeform\Freeform;
 
 class FormResolver extends Resolver
 {
-    public static function resolve($source, array $arguments, $context, ResolveInfo $resolveInfo)
+    public static function resolve(mixed $source, array $arguments, mixed $context, ResolveInfo $resolveInfo): mixed
     {
         $arguments = self::getArguments($arguments);
 

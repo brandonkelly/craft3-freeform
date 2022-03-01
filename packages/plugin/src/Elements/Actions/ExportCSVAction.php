@@ -23,7 +23,7 @@ class ExportCSVAction extends ElementAction
     /**
      * {@inheritDoc}
      */
-    public function getTriggerHtml()
+    public function getTriggerHtml(): ?string
     {
         $type = Json::encode(static::class);
 
@@ -63,6 +63,7 @@ EOT;
         );
 
         \Craft::$app->view->registerJs($js);
+        return null;
     }
 
     /**
@@ -117,5 +118,6 @@ EOT;
         $fileName = sprintf('%s submissions %s.csv', $form->name, date('Y-m-d H:i'));
 
         Freeform::getInstance()->exportProfiles->outputFile($exporter->export(), $fileName, $exporter->getMimeType());
+        return true;
     }
 }

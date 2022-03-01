@@ -35,7 +35,7 @@ class FieldType extends AbstractObjectType
         return 'FreeformField_'.StringHelper::toPascalCase($typeName);
     }
 
-    protected function resolve($source, $arguments, $context, ResolveInfo $resolveInfo)
+    protected function resolve(mixed $source, array $arguments, mixed $context, ResolveInfo $resolveInfo): mixed
     {
         if ('values' === $resolveInfo->fieldName) {
             $resolveInfo->fieldName = 'value';

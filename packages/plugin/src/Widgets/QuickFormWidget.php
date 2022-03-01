@@ -39,7 +39,7 @@ class QuickFormWidget extends Widget
     /**
      * {@inheritDoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -48,7 +48,7 @@ class QuickFormWidget extends Widget
         }
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title ?: self::displayName();
     }
@@ -60,7 +60,7 @@ class QuickFormWidget extends Widget
         ];
     }
 
-    public function getBodyHtml(): string
+    public function getBodyHtml(): ?string
     {
         $freeform = Freeform::getInstance();
         $formModel = $freeform->forms->getFormById($this->formId);
@@ -87,7 +87,7 @@ class QuickFormWidget extends Widget
         );
     }
 
-    public function getSettingsHtml(): string
+    public function getSettingsHtml(): ?string
     {
         $freeform = Freeform::getInstance();
 

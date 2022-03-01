@@ -45,7 +45,7 @@ class StatisticsWidget extends Widget
         return __DIR__.'/../icon-mask.svg';
     }
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -69,7 +69,7 @@ class StatisticsWidget extends Widget
         ];
     }
 
-    public function getBodyHtml(): string
+    public function getBodyHtml(): ?string
     {
         $freeform = Freeform::getInstance();
         $submissionsService = $freeform->submissions;
@@ -140,7 +140,7 @@ class StatisticsWidget extends Widget
         );
     }
 
-    public function getSettingsHtml(): string
+    public function getSettingsHtml(): ?string
     {
         $freeform = Freeform::getInstance();
 

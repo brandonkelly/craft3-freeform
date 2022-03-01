@@ -43,7 +43,7 @@ class SetSubmissionStatusAction extends ElementAction
     /**
      * {@inheritdoc}
      */
-    public function getTriggerHtml()
+    public function getTriggerHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
             'freeform/_components/fieldTypes/setStatusTrigger',

@@ -11,7 +11,7 @@ use yii\web\Response;
 
 class SettingsController extends BaseController
 {
-    public function init()
+    public function init(): void
     {
         PermissionHelper::requirePermission(Freeform::PERMISSION_SETTINGS_ACCESS);
 

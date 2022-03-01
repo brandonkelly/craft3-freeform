@@ -19,7 +19,7 @@ class WebhooksController extends BaseController
     /**
      * Make sure this controller requires a logged in member.
      */
-    public function init()
+    public function init(): void
     {
         if (!\Craft::$app->request->getIsConsoleRequest()) {
             $this->requireLogin();
