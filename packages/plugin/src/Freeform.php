@@ -187,7 +187,6 @@ class Freeform extends Plugin
     const EDITION_PRO = 'pro';
 
     const PERMISSIONS_HELP_LINK = 'https://docs.solspace.com/craft/freeform/v3/setup/demo-templates.html';
-    const PERMISSION_NAMESPACE = 'Freeform';
 
     const VERSION_CACHE_KEY = 'freeform_version';
     const VERSION_CACHE_TIMESTAMP_KEY = 'freeform_version_timestamp';
@@ -816,14 +815,10 @@ class Freeform extends Plugin
                         self::PERMISSION_RESOURCES => ['label' => self::t('Access Resources')],
                     ];
 
-                    if (!isset($event->permissions[self::PERMISSION_NAMESPACE])) {
-                        $event->permissions[self::PERMISSION_NAMESPACE] = [];
-                    }
-
-                    $event->permissions[self::PERMISSION_NAMESPACE] = array_merge(
-                        $event->permissions[self::PERMISSION_NAMESPACE],
-                        $permissions
-                    );
+                    $event->permissions[] = [
+                        'heading' => 'Freeform',
+                        'permissions' => $permissions,
+                    ];
                 }
             );
         }
